@@ -10,11 +10,13 @@
     outline: none;
     margin: 0;
     resize: none;
+    padding-right: 7vh;
   }
   input[type="submit"] {
     position: absolute;
     height: calc(100% - 4vh);
     outline: none;
+    width: 7vh;
     right: 2vh;
   }
 }

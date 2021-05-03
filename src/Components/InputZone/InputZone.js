@@ -12,6 +12,11 @@ export default function InputZone(props) {
       usuario: props.user.username,
       timeStamp: Date.now(),
     });
+    props.nuevoMensaje({
+      mensaje,
+      usuario: props.user.username,
+      timeStamp: Date.now(),
+    });
   }
   function handleChange(event) {
     setMensaje(event.target.value);

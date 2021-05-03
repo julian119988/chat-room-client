@@ -4,7 +4,7 @@ import Main from "./Components/Main/Main";
 import Index from "./Components/Index/Index";
 import "./App.scss";
 
-const SERVER = "http://127.0.0.1:8080";
+const SERVER = "http://192.168.1.20:8080/";
 
 function App() {
   const [user, setUser] = useState();
@@ -13,6 +13,7 @@ function App() {
   useEffect(() => {
     const io = socketIOClient(SERVER);
     setSocket(io);
+    console.log(SERVER);
   }, []);
   function getUser(username) {
     setUser({

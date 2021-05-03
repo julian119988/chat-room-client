@@ -5,24 +5,31 @@ export const TextZone = (props) => {
 
   useEffect(() => {
     props.socket?.on("nuevoMensaje", (msg) => {
-      console.log(mensajes, msg);
       setMensajes((mensajes) => [...mensajes, msg]);
+      document.getElementsByClassName(
+        "textZone"
+      )[0].scrollTop = document.getElementsByClassName(
+        "textZone"
+      )[0].scrollHeight;
     });
   }, [props.socket]);
+  useEffect(() => {
+    if (props.nuevoMensaje) {
+      setMensajes((mensajes) => [...mensajes, props.nuevoMensaje]);
+    }
+  }, [props.nuevoMensaje]);
 
   return (
     <div className="textZone">
-      <ul>
+      <ul id="lista">
         {mensajes.map((mensaje) => {
           const time = new Date(mensaje.timeStamp);
           const msgTime = time.getHours() + ":" + time.getMinutes();
           return (
             <li>
               <div className="mensaje">
-                <p>
-                  {mensaje.mensaje}
-                  <p className="timestamp">{mensaje.usuario + " " + msgTime}</p>
-                </p>
+                <p className="mensajePrincipal">{mensaje.mensaje}</p>
+                <p className="timestamp">{mensaje.usuario + " " + msgTime}</p>
               </div>
             </li>
           );
