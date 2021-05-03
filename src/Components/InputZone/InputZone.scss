@@ -1,0 +1,20 @@
+.inputZone {
+  height: 10vh;
+  padding: 2vh;
+  display: flex;
+  position: relative;
+  textarea {
+    position: absolute;
+    width: calc(100% - 4vh);
+    height: calc(100% - 4vh);
+    outline: none;
+    margin: 0;
+    resize: none;
+  }
+  input[type="submit"] {
+    position: absolute;
+    height: calc(100% - 4vh);
+    outline: none;
+    right: 2vh;
+  }
+}

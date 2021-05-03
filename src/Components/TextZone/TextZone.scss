@@ -1,0 +1,32 @@
+.textZone {
+  height: 80vh;
+  background-color: chocolate;
+  ul {
+    list-style: none;
+    li {
+      max-width: 30vh;
+    }
+  }
+}
+.mensaje {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  height: fit-content;
+  max-width: 30vh;
+
+  .timestamp {
+    color: silver;
+    height: 100%;
+    font-size: 1vh;
+    margin-left: 1vh;
+    align-items: flex-end !important;
+  }
+  p {
+    display: flex;
+    margin: 0;
+    align-items: center;
+    word-wrap: break-word;
+    max-width: 30vh;
+  }
+}
