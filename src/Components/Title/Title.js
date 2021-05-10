@@ -1,2 +1,6 @@
 import "./Title.scss";
-export const Title = () => <div className="title">Name of the room</div>;
+export const Title = () => (
+  <div className="title">
+    <h2>Zambroni's chat app</h2>
+  </div>
+);

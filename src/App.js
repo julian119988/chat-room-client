@@ -4,7 +4,7 @@ import Main from "./Components/Main/Main";
 import Index from "./Components/Index/Index";
 import "./App.scss";
 
-const SERVER = "http://192.168.1.20:8080/";
+const SERVER = "https://simple-chat-appz.herokuapp.com/";
 
 function App() {
   const [user, setUser] = useState();
@@ -13,13 +13,21 @@ function App() {
   useEffect(() => {
     const io = socketIOClient(SERVER);
     setSocket(io);
-    console.log(SERVER);
   }, []);
   function getUser(username) {
     setUser({
       username: username,
     });
   }
+
+  useEffect(() => {
+    if (user) {
+      socket.emit("usuarioEstablecido", {
+        usuario: user.username,
+        user_id: socket.id,
+      });
+    } // eslint-disable-next-line
+  }, [user]); // eslint-disable-next-line
 
   return (
     <>

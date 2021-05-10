@@ -18,16 +18,38 @@ export const TextZone = (props) => {
       setMensajes((mensajes) => [...mensajes, props.nuevoMensaje]);
     }
   }, [props.nuevoMensaje]);
+  useEffect(() => {
+    document.getElementsByClassName(
+      "textZone"
+    )[0].scrollTop = document.getElementsByClassName(
+      "textZone"
+    )[0].scrollHeight;
+  }, [mensajes]);
 
+  function alinearMensaje(user_idMensaje) {
+    if (user_idMensaje === props.socket?.id) {
+      return { marginLeft: "auto" };
+    }
+    return { marginRight: "auto" };
+  }
   return (
     <div className="textZone">
       <ul id="lista">
-        {mensajes.map((mensaje) => {
+        {mensajes.map((mensaje, counter) => {
           const time = new Date(mensaje.timeStamp);
-          const msgTime = time.getHours() + ":" + time.getMinutes();
+          let horas = time.getHours();
+          let minutos = time.getMinutes();
+          if (parseInt(minutos) < 10) {
+            minutos = "0" + minutos.toString();
+          }
+          if (parseInt(horas) < 10) {
+            horas = "0" + horas.toString();
+          }
+          const msgTime = horas + ":" + minutos;
+
           return (
-            <li>
-              <div className="mensaje">
+            <li key={counter}>
+              <div className="mensaje" style={alinearMensaje(mensaje.user_id)}>
                 <p className="mensajePrincipal">{mensaje.mensaje}</p>
                 <p className="timestamp">{mensaje.usuario + " " + msgTime}</p>
               </div>

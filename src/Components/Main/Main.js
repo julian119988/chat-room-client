@@ -9,6 +9,7 @@ const Main = (props) => {
   function nuevoMensaje(valor) {
     setMensaje(valor);
   }
+
   return (
     <div className="main">
       <Title />

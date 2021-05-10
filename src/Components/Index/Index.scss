@@ -21,3 +21,35 @@
     }
   }
 }
+input[type="text"] {
+  width: 60%;
+}
+.errorDiv {
+  position: absolute;
+  top: 52.6vh;
+  font-size: 1.5vh;
+  background-color: hsla(360, 100%, 50%, 0.61);
+  padding: 1vh;
+  border-radius: 1vh;
+  color: white;
+
+  width: fit-content;
+  button {
+    background-image: url("../../images/close_cross_icon.png");
+    background-size: cover;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    width: 2vh;
+    height: 2vh;
+  }
+  label {
+    max-width: 20vh;
+  }
+}
+@media (max-width: "800px") {
+  .errorDiv {
+    top: 65vh;
+  }
+}

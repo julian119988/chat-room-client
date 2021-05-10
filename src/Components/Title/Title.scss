@@ -1,4 +1,13 @@
 .title {
-  background-color: blanchedalmond;
+  background-color: black;
   height: 10vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h2 {
+    margin: 0;
+    text-align: center;
+    height: fit-content;
+  }
 }
